@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import TodoList from "./components/TodoList";
 import { Paper, Typography, AppBar, Toolbar } from "@material-ui/core";

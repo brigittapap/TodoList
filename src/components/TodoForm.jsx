@@ -1,12 +1,34 @@
-import React from 'react'
+import React, { useState } from "react";
+import { TextField, Button, Paper } from "@material-ui/core";
 
-const TodoForm = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+const TodoForm = ({ addTask }) => {
+  const [todo, setTodo] = useState("");
 
-export default TodoForm
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(`to do  ${todo}`);
 
+    if (!todo) return;
+    addTask(todo);
+    setTodo("");
+  };
+
+  return (
+    <Paper style={{ margin: 16, padding: 16 }}>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          id="standard-basic"
+          type="text"
+          value={todo}
+          placeholder="Add a new task"
+          onChange={(event) => setTodo(event.target.value)}
+        />
+        <Button variant="contained" color="primary" type="submit">
+          Add Task
+        </Button>
+      </form>
+    </Paper>
+  );
+};
+
+export default TodoForm;
