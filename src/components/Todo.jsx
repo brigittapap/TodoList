@@ -1,25 +1,28 @@
 import React from "react";
-import { Paper } from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
+import { Paper, makeStyles } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 
+const useStyles = makeStyles(() => ({
+  paper: {
+    padding: "1.5rem 1rem",
+    margin: "0.75rem",
+    fontSize: "26",
+    fontWeight: "bolder",
+  },
+  deleteIcon: {
+    float: "right"
+  }
+
+}));
+
 const Todo = ({ task, index, removeTask }) => {
+  const classes = useStyles();
+
   return (
-    <Paper
-      elevation={3}
-      style={{
-        padding: "1.5rem 1rem",
-        margin: "0.75rem",
-      }}
-    >
-      {task}
-      <IconButton
-        aria-label="delete"
-        style={{ float: "right" }}
-        onClick={() => removeTask(index)}
-      >
-        <DeleteIcon />
-      </IconButton>
+    <Paper className={classes.paper} elevation={15}>
+      {task}  
+      <DeleteIcon className={classes.deleteIcon} onClick={() => removeTask(index)}>
+      </DeleteIcon>
     </Paper>
   );
 };

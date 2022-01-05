@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
-import { Container, Button } from '@mui/material';
+import { Container} from '@mui/material';
 
 const TodoList = (todo) => {
   const [tasks, setTasks] = useState([]);
@@ -21,8 +21,11 @@ const TodoList = (todo) => {
     <Container>
       <TodoForm addTask={addTask}></TodoForm>
         {tasks.map((task, index) => (
-          <Todo task={task.name} index={index} removeTask={removeTask} />
-        ))}
+          <Todo 
+            task={task.name} 
+            index={index} 
+            removeTask={removeTask} />
+        )).reverse()}
     </Container>
   );
 };
