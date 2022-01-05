@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
-import { Container } from "@material-ui/core";
+import { Container, Button } from '@mui/material';
 
 const TodoList = (todo) => {
-  const [tasks, setTasks] = useState([{ name: "task1" }]);
+  const [tasks, setTasks] = useState([]);
 
   const addTask = (name) => {
     const todoslist = [...tasks, { name }];
@@ -17,19 +17,12 @@ const TodoList = (todo) => {
     setTasks(newtodolist);
   };
 
-  const crossLine = (event) => {
-    const element = event.target;
-    element.classList.toggle("crossed-line");
-  };
-
-  return (
-    <Container fixed>
+  return ( 
+    <Container>
       <TodoForm addTask={addTask}></TodoForm>
-      <p className="tasks" onClick={crossLine}>
         {tasks.map((task, index) => (
           <Todo task={task.name} index={index} removeTask={removeTask} />
         ))}
-      </p>
     </Container>
   );
 };

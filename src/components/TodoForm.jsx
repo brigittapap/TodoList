@@ -23,7 +23,7 @@ const TodoForm = ({ addTask }) => {
           placeholder="Add a new task"
           onChange={(event) => setTodo(event.target.value)}
         />
-        <Button variant="contained" color="primary" type="submit">
+        <Button variant="contained" color="primary" type="submit" style={{margin: 5 }}>
           Add Task
         </Button>
       </form>
